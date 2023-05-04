@@ -1,8 +1,8 @@
-var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput;
-var argButtonName;
-var buttonRock = document.getElementById('button-rock');
-var buttonScissors = document.getElementById('button-scissors');
-var buttonPaper = document.getElementById('button-paper');
+// Czy deklaracje tych zmiennych są w ogóle potrzebne? Program działa dobrze bez nich
+// let argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput, argButtonName;
+const buttonRock = document.getElementById('button-rock');
+const buttonScissors = document.getElementById('button-scissors');
+const buttonPaper = document.getElementById('button-paper');
 
 function buttonClicked(argButtonName) {
     clearMessages();
@@ -17,7 +17,7 @@ function buttonClicked(argButtonName) {
 }
 
 function getMoveName(argMoveId) {
-    let number = Number(argMoveId);
+    const number = Number(argMoveId);
     console.log('wywołano funkcję getMoveName z argumentem: ' + number + ' typu ' + typeof (number));
     switch (number) {
         case 1: return 'kamien';
