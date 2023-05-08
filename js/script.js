@@ -1,5 +1,3 @@
-// Czy deklaracje tych zmiennych są w ogóle potrzebne? Program działa dobrze bez nich
-// let argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput, argButtonName;
 const buttonRock = document.getElementById('button-rock');
 const buttonScissors = document.getElementById('button-scissors');
 const buttonPaper = document.getElementById('button-paper');
@@ -8,10 +6,8 @@ function buttonClicked(argButtonName) {
     clearMessages();
     console.log(argButtonName + ' został kliknięty');
 
-    playerMove = argButtonName;
-    randomNumber = Math.floor(Math.random() * 3 + 1);
-    console.log('wylosowana liczba to: ' + randomNumber);
-    computerMove = getMoveName(randomNumber);
+    const playerMove = argButtonName;
+    const computerMove = getMoveName(Math.floor(Math.random() * 3 + 1));
     console.log('ruch komputera to: ' + computerMove);
     displayResult(playerMove, computerMove);
 }
@@ -33,32 +29,17 @@ function getMoveName(argMoveId) {
 function displayResult(argPlayerMove, argComputerMove) {
     console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
     printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
-    if (argPlayerMove == 'papier' && argComputerMove == 'kamien') {
-        printMessage('Wygrywasz!');
-    }
-    if (argPlayerMove == 'papier' && argComputerMove == 'papier') {
+
+    if ((argPlayerMove == 'papier' && argComputerMove == 'papier') ||
+        (argPlayerMove == 'kamien' && argComputerMove == 'kamien') ||
+        (argPlayerMove == 'nozyce' && argComputerMove == 'nozyce')) {
         printMessage('Remis!');
-    }
-    if (argPlayerMove == 'papier' && argComputerMove == 'nozyce') {
-        printMessage('Przegrywasz!');
-    }
-    if (argPlayerMove == 'kamien' && argComputerMove == 'kamien') {
-        printMessage('Remis!');
-    }
-    if (argPlayerMove == 'kamien' && argComputerMove == 'papier') {
-        printMessage('Przegrywasz!');
-    }
-    if (argPlayerMove == 'kamien' && argComputerMove == 'nozyce') {
-        printMessage('Wygrywasz!');
-    }
-    if (argPlayerMove == 'nozyce' && argComputerMove == 'kamien') {
-        printMessage('Przegrywasz!');
-    }
-    if (argPlayerMove == 'nozyce' && argComputerMove == 'papier') {
-        printMessage('Wygrywasz!');
-    }
-    if (argPlayerMove == 'nozyce' && argComputerMove == 'nozyce') {
-        printMessage('Remis!');
+    } else if ((argPlayerMove == 'papier' && argComputerMove == 'nozyce') ||
+        (argPlayerMove == 'kamien' && argComputerMove == 'papier') ||
+        (argPlayerMove == 'nozyce' && argComputerMove == 'kamien')) {
+        printMessage('Przegrales!');
+    } else {
+        printMessage('Wygrales!');
     }
 }
 
