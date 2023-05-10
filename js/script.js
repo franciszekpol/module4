@@ -30,9 +30,7 @@ function displayResult(argPlayerMove, argComputerMove) {
     console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
     printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 
-    if ((argPlayerMove == 'papier' && argComputerMove == 'papier') ||
-        (argPlayerMove == 'kamien' && argComputerMove == 'kamien') ||
-        (argPlayerMove == 'nozyce' && argComputerMove == 'nozyce')) {
+    if (argPlayerMove == argComputerMove) {
         printMessage('Remis!');
     } else if ((argPlayerMove == 'papier' && argComputerMove == 'nozyce') ||
         (argPlayerMove == 'kamien' && argComputerMove == 'papier') ||
